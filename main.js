@@ -17,7 +17,7 @@ const tilt = () => {
   if (tiltCounter >= 5) {
     Ollee.clearInterval(tiltInterval);
     Ollee.clear();
-    var answer = "      " + possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)] + "      ";
+    let answer = "      " + possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)] + "      ";
     tiltInterval = Ollee.setInterval(() => {
       Ollee.drawMain(answer.slice(0, 6));
       answer = answer.slice(1) + answer.charAt(0);

@@ -18,5 +18,5 @@ const tilt = () => {
   tiltInterval = Ollee.setInterval(() => {
     Ollee.drawMain(answer.slice(0, 6));
     answer = answer.slice(1) + answer.charAt(0);
-  }, 350);
+  }, 250);
 }

@@ -5,6 +5,7 @@ const possibleAnswers = ["It is certain", "It is decidedly so", "Without a doubt
 const subscribe = E_TILT;
 
 let tiltInterval = null;
+let tiltCounter = 0;
 
 function enter() {
   Ollee.clear();
@@ -12,11 +13,15 @@ function enter() {
 }
 
 const tilt = () => {
-  Ollee.clearInterval(tiltInterval);
-  Ollee.clear();
-  var answer = "      " + possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)] + "      ";
-  tiltInterval = Ollee.setInterval(() => {
-    Ollee.drawMain(answer.slice(0, 6));
-    answer = answer.slice(1) + answer.charAt(0);
-  }, 250);
+  tiltCounter++;
+  if (tiltCounter >= 5) {
+    Ollee.clearInterval(tiltInterval);
+    Ollee.clear();
+    var answer = "      " + possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)] + "      ";
+    tiltInterval = Ollee.setInterval(() => {
+      Ollee.drawMain(answer.slice(0, 6));
+      answer = answer.slice(1) + answer.charAt(0);
+    }, 250);
+    tiltCounter = 0;
+  }
 }
